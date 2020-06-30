@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "52a52c2b-fdde-456a-953d-8b48119d6268",
+		"name": "FreelanceHN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/Empleo/one/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Empleo/one/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Empleo",
+						"one",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "put"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/Empleo/new",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Empleo/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Empleo",
+						"new"
+					]
+				},
+				"description": "post"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/Empleo/aplicar/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Empleo/aplicar/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Empleo",
+						"aplicar",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "put"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/Empleo/one/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Empleo/one/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Empleo",
+						"one",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "get"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/Empleo/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Empleo/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Empleo",
+						"all"
+					]
+				},
+				"description": "get"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/sec/signin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sec/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sec",
+						"signin"
+					]
+				},
+				"description": "get"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/sec/login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sec/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sec",
+						"login"
+					]
+				},
+				"description": "get"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": "get"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
