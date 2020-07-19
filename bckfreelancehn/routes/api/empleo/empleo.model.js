@@ -17,17 +17,15 @@ module.exports = class {
 
 
     static async getAll(){
-        try{
-          if(empleoColl){
-            let registro = await empleoColl.find();
-            return registro.toArray();
-          }
-          return [];
-        } catch(err){
-          console.log(err);
-          return err;
-        }
-      }//mostrar todos los empleos
+      if(empleoColl){
+        let registro = await  empleoColl.find();
+        return registro.toArray();
+      }
+      return [];
+    }
+
+
+  
 
       static async addOne(titulo,descripcion,categoria,contacto ) {
         try{
@@ -40,6 +38,7 @@ module.exports = class {
         }
       }//agregar un nuevo empleo
 
+
       static async getOne(id) {
         try {
           let filter = { "_id": new ObjectId(id)};
@@ -49,21 +48,31 @@ module.exports = class {
           console.log(err);
           return err;
         }
-      }//buscar un empleo en especifico (por el id )
+      }
 
-
-      static async getByCuenta(categoria) {
+      static async getBycategoria(categoria) {
         try {
           let filter = { "categoria": categoria };
+          // const result = await empleoColl.find({"categoria":filter}); 
           const result = await empleoColl.findOne(filter);
           return result;
         } catch (err) {
           console.log(err);
           return err;
         }
-      } //buscar un empleo en especifico (por categorias )
-    
+      } //get by Cuenta
 
+      static async deleteOne(id){
+        try{
+          let filter = {"_id": new ObjectId(id)};
+          const result = await empleoColl.deleteOne(filter);
+          return result;
+        }catch(err){
+          console.log(err);
+          return err;
+        }
+      }
+    
 
 
 
