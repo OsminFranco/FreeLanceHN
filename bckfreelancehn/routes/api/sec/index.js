@@ -1,15 +1,14 @@
+
 var express = require('express');
 var router = express.Router();
-//var jwt = require('jsonwebtoken');
+var jwt = require('jsonwebtoken');
 
-//const secModel = require('./sec.model');
+let secModel = require('./sec.model');
 
-
-let  init = async ()=>{
+let init = async ()=>{
   await secModel.initModel();
 }
-//init();
-
+init();
 
 router.post('/signin', async (req, res) => {
   try {
@@ -17,7 +16,7 @@ router.post('/signin', async (req, res) => {
     console.log(rslt);
     res.status(200).json({ "msg": "Usuario Creado" });
   } catch (err) {
-    res.status(500).json({ "error": "Algo Salio mal!!" });
+    res.status(500).json({ "error": "Algo Sucendió mal!!" });
   }
 }
 );
@@ -38,15 +37,13 @@ router.post('/login' , async(req, res)=>{
          }
        );
     } else {
-      res.status(401).json({"error":"Usuario o Password incorrecto"});
+      res.status(401).json({"error":"Credenciales Incorrectas"});
     }
   } catch (err) {
-    res.status(500).json({ "error": "Algo Salio mal!!" });
+    res.status(500).json({ "error": "Algo Sucendió mal!!" });
   }
 });
 
 
 
 module.exports = router;
-
-

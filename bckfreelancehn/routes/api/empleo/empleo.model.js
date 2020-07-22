@@ -1,6 +1,7 @@
 const db = require('../../dao/db');
 const ObjectId = require('mongodb').ObjectId;
 
+
 let empleoColl;
 
 module.exports = class {
@@ -52,10 +53,10 @@ module.exports = class {
 
       static async getBycategoria(categoria) {
         try {
-          let filter = { "categoria": categoria };
-          // const result = await empleoColl.find({"categoria":filter}); 
-          const result = await empleoColl.findOne(filter);
-          return result;
+          let filter = {"categoria": categoria};
+          const result = await empleoColl.find(filter); 
+          //const result = await empleoColl.findOne(filter);
+          return await result.toArray();
         } catch (err) {
           console.log(err);
           return err;
@@ -71,9 +72,12 @@ module.exports = class {
           console.log(err);
           return err;
         }
-      }
+      }//eliminar empleo
     
 
+     
+
+      
 
 
 

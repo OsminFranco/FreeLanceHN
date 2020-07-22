@@ -1,25 +1,24 @@
 const db = require('../../dao/db');
-const ObjectId = require('mongodb').ObjectId;
+const objectId = require('mongodb').objectId;
 const bcrypt = require('bcrypt');
 
 let userColl;
 
-module.exports = class {
+module.exports = class{
   static async initModel(){
-    if (!userColl) {
+    if(!userColl) {
       let _db = await db.getDB();
-      //console.log(_db);
       userColl = await _db.collection('usuarios');
-      if (process.env.ENSUREINDEX == "1"){
-        console.log('Creando Indices de Usuarios');
-        await userColl.createIndex({"email":1},{unique:true});
+      if(process.env.ENSUREINDEX !== "1"){
+        console.log('Creando indices de Usuarios');
+        await userColl.ensureIndex({"email":1},{unique:true});
       }
-      console.log("Coleccion de Usuario asignados");
+      console.log("Coleccion de Usuarios asignados");
       return;
-    } else {
+    }else{
       return;
     }
-  } //initModel
+  }//init model
 
   static async addnew( data ){
     const {email, password } = data;
@@ -59,4 +58,6 @@ module.exports = class {
       return false;
     }
   }
+
+
 }
