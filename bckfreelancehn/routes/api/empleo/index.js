@@ -7,6 +7,8 @@ const init = async ()=>{
 }
 init();
 
+
+
 router.get('/all', async (req, res)=> {
   try{
     let empleo = await model.getAll();
@@ -64,6 +66,8 @@ router.delete ('/del/:id', async (req, res)=>{
     res.status(500).json({ "Error": "Algo Sucedio Mal intentar de nuevo." });
   }
 });
+
+
 
 
 module.exports = router;

@@ -1,25 +1,24 @@
 import React from 'react';
+import {Route , Switch, BrowserRouter as Router}   from 'react-router-dom';
+
+
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+import Home from './components/Content/Home'
+import SingIn  from './components/Content/Sing in'
+import Votes from './components/Content/Votes';
+
+function App() { //componente funcional
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <switch>
+      <Route path="/" component={Home} exact />
+      <Route path="/votes" component={Votes} exact />
+      <Route path="/signin" component={SingIn} exact />
+      </switch>
+    </Router>
   );
 }
 
