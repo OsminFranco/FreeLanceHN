@@ -36,7 +36,6 @@ export default class extends Component{
             window.location.replace("http://localhost:3001/");
         }catch(e){
 
-            alert("Error")
         }
     }
 
@@ -57,16 +56,23 @@ export default class extends Component{
             auth = {this.props.auth}
 
             >
-            <h2>Crear Usuario</h2>
+                <div class="form-group col-md-6">
+
+                
             <fieldset>
                 <label>Email</label>
-                <input type = "email" name="email" onChange ={this.onTextchange}value={this.state.email}></input>
+                <input type = "email" class="form-control" name="email" onChange ={this.onTextchange}value={this.state.email}></input>
             </fieldset>
+
+
             <fieldset>
-                <label>password</label>
-                <input type = "password" name="password" onChange ={this.onTextchange}value={this.state.password}></input>
+                <label>Password</label>
+                <input type = "password" class="form-control" name="password" onChange ={this.onTextchange}value={this.state.password}></input>
             </fieldset>
-            <button onClick = {this.onClickButton} >Iniciar Sesion</button>
+
+            <br></br>
+            <button class="btn btn-primary" onClick = {this.onClickButton} >Crear Usuario</button>
+            </div>
             </Page>
         );
 

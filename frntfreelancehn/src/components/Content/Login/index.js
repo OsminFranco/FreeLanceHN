@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom'
 
 import { login } from './actions';
 
+
 export default class extends Component{
 
     
@@ -35,11 +36,11 @@ export default class extends Component{
             const {jwt} = userData;
             delete userData.jwt;
             this.setState({"redirectTo":true}, ()=> {this.props.auth.login(userData, jwt);});
-            alert("Usuario Correcto")
+            alert("Usuario Correcto");
             window.location.replace("http://localhost:3001/");
         }catch(e){
 
-            alert("Error")
+            alert("Usuario o Contraseña Incorrecto")
         }
     }
 
@@ -60,16 +61,25 @@ export default class extends Component{
             auth = {this.props.auth}
 
             >
-            <h2>Iniciar Sesion</h2>
+                
+                <div class="form-group col-md-6">
+
             <fieldset>
                 <label>Email</label>
-                <input type = "email" name="email" onChange ={this.onTextchange}value={this.state.email}></input>
+                <input type = "email" class="form-control" name="email" onChange ={this.onTextchange}value={this.state.email}></input>
             </fieldset>
+
             <fieldset>
-                <label>password</label>
-                <input type = "password" name="password" onChange ={this.onTextchange}value={this.state.password}></input>
+                <label>Password</label>
+                <input type = "password" class="form-control " name="password"  onChange ={this.onTextchange}value={this.state.password}></input>
             </fieldset>
-            <button onClick = {this.onClickButton} >Iniciar Sesion</button>
+
+            
+            <br></br>
+            <button class="btn btn-primary" onClick = {this.onClickButton} >Iniciar Sesion</button>
+
+            </div>
+            
             </Page>
         );
 

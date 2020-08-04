@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import Page from '../../Page';
 import {getEmpleo , getPrivateEmpleo} from './actions';
+import './home.css';
+import logo from './imagen.png';
+import './css/bootstrap.css';
+
+
+
 export default class extends Component{
 
 
@@ -50,13 +56,19 @@ export default class extends Component{
     >
                 <h2></h2>
                 <div>
-                <p>FreelanceHn es el lugar indicado para poder conseguir trabajo de forma totalmente remota , nos especializamos en programacion , diseño grafico, edicion de videos,
-                    marketing digital, animacion 3D y muchas más.
+                <p>
+                    <b>FreelanceHn es el lugar indicado para poder conseguir trabajo de forma totalmente remota , nos especializamos en programacion , diseño grafico, edicion de videos,
+                    marketing digital, animacion 3D y muchas más.</b>
                 </p>
-                
+
+                <div class="col-s-1 col-m-" class= "center" >
+                <img src={logo} ></img>
+                </div>
+                <b>
                 <p>
                                                              Pasos para utilizar FreelanceHn
                 </p>
+                </b>
                 <p>
                      Freelancer 
                 </p>
@@ -78,7 +90,7 @@ export default class extends Component{
                 </div>
                 
                 
-                 <button onClick = {this.onClickButton} >Cerrar sesion</button>
+                 <button class="btn btn-primary" onClick = {this.onClickButton} >Cerrar sesion</button>
             </Page>
         );
 

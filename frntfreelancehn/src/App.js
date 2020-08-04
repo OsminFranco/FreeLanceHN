@@ -81,5 +81,3 @@ export default class extends Component{
     );
   }
 }
-
-//export default App;

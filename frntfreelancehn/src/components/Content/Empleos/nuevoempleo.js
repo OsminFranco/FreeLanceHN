@@ -59,28 +59,29 @@ export default class extends Component{
             auth = {this.props.auth}
 
             >
-            <h2>Crear Empleo</h2>
+                <div class="form-group col-md-6">
             <fieldset>
                 <label>Titulo</label>
-                <input type = "titulo" name="titulo" onChange ={this.onTextchange}value={this.state.titulo}></input>
+                <input type = "titulo" class="form-control" name="titulo" onChange ={this.onTextchange}value={this.state.titulo}></input>
             </fieldset>
 
             <fieldset>
                 <label>Descripcion</label>
-                <input type = "descripcion" name="descripcion" onChange ={this.onTextchange}value={this.state.descripcion}></input>
+                <input type = "descripcion" class="form-control" name="descripcion" onChange ={this.onTextchange}value={this.state.descripcion}></input>
             </fieldset>
 
             <fieldset>
                 <label>Categoria</label>
-                <input type = "categoria" name="categoria" onChange ={this.onTextchange}value={this.state.categoria}></input>
+                <input type = "categoria" class="form-control" name="categoria" onChange ={this.onTextchange}value={this.state.categoria}></input>
             </fieldset>
 
             <fieldset>
                 <label>Contacto</label>
-                <input type = "contacto" name="contacto" onChange ={this.onTextchange}value={this.state.contacto}></input>
+                <input type = "contacto" class="form-control" name="contacto" onChange ={this.onTextchange}value={this.state.contacto}></input>
             </fieldset>
-
-            <button onClick = {this.onClickButton} >Crear</button>
+            <br></br>
+            <button class="btn btn-primary" onClick = {this.onClickButton} >Crear</button>
+            </div>
             </Page>
         );
 
