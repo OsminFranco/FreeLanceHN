@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Page from '../../Page';
 import {Redirect} from 'react-router-dom'
 
-import {signin} from './actions';
+import { login } from './actions';
 
 export default class extends Component{
 
@@ -31,8 +31,11 @@ export default class extends Component{
     {
         try{
 
-            let userData = await signin(this.state.email , this.state.password);
-            alert("Usuario Creado");
+            let userData = await login(this.state.email , this.state.password);
+            const {jwt} = userData;
+            delete userData.jwt;
+            this.setState({"redirectTo":true}, ()=> {this.props.auth.login(userData, jwt);});
+            alert("Usuario Correcto")
             window.location.replace("http://localhost:3001/");
         }catch(e){
 
@@ -53,11 +56,11 @@ export default class extends Component{
             <Page 
             showHeader = {true}
             showFooter = {true}    
-            title={"Crear Usuario"}
+            title={"Iniciar Sesion"}
             auth = {this.props.auth}
 
             >
-            <h2>Crear Usuario</h2>
+            <h2>Iniciar Sesion</h2>
             <fieldset>
                 <label>Email</label>
                 <input type = "email" name="email" onChange ={this.onTextchange}value={this.state.email}></input>
@@ -73,3 +76,22 @@ export default class extends Component{
     }
     
 }
+
+
+/*<Page 
+showHeader = {true}
+showFooter = {true}    
+title={"Iniciar Sesion"}
+
+>
+<h2>Iniciar Sesion</h2>
+<fieldset>
+    <label>Email</label>
+    <input type = "email" name="email" onChange ={this.onTextchange}value={this.state.email}></input>
+</fieldset>
+<fieldset>
+    <label>password</label>
+    <input type = "password" name="password" onChange ={this.onTextchange}value={this.state.password}></input>
+</fieldset>
+ <button onClick = {this.onClickButton} >Iniciar Sesion</button>
+</Page>*/

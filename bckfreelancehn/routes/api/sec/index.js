@@ -44,6 +44,29 @@ router.post('/login' , async(req, res)=>{
   }
 });
 
+router.get('/all', async (req, res)=> {
+  try{
+    let sec = await secModel.getAll();
+    res.status(200).json(sec);
+  }catch(err){
+    console.log(err);
+    res.status(500).json({"Error":"Algo salio mal"});
+  }
+  
+});
+
+router.delete ('/del/:id', async (req, res)=>{
+  try {
+      const {id} = req.params;
+      const result = await secModel.deleteOne(id);
+      res.status(200).json(result);
+  }catch(err){
+    console.log(err);
+    res.status(500).json({ "Error": "Algo Sucedio Mal intentar de nuevo." });
+  }
+});
+
+
 
 
 module.exports = router;

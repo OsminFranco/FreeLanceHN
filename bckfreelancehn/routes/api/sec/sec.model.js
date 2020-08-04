@@ -1,5 +1,5 @@
 const db = require('../../dao/db');
-const objectId = require('mongodb').objectId;
+const ObjectId = require('mongodb').ObjectId;
 const bcrypt = require('bcrypt');
 
 let userColl;
@@ -19,6 +19,14 @@ module.exports = class{
       return;
     }
   }//init model
+
+  static async getAll(){
+    if(userColl){
+      let registro = await  userColl.find();
+      return registro.toArray();
+    }
+    return [];
+  }
 
   static async addnew( data ){
     const {email, password } = data;
@@ -58,6 +66,18 @@ module.exports = class{
       return false;
     }
   }
+
+  static async deleteOne(id){
+    try{
+      let filter = {"_id": new ObjectId(id)};
+      const result = await userColl.deleteOne(filter);
+      return result;
+    }catch(err){
+      console.log(err);
+      return err;
+    }
+  }//eliminar empleo
+
 
 
 }

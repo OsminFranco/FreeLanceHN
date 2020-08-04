@@ -13,20 +13,24 @@ export default class extends Component{
         }
         
         this.onClickButton = this.onClickButton.bind(this);
+        
+
     }
 
 
     onClickButton(e)
     {
-        this.setState({click:(this.state.click + 1)});
+       // this.setState({click:(this.state.click + 1)});
+        localStorage.clear();
+        window.location.replace("http://localhost:3001/");
     }
 
     async componentDidMount(){
         try{
         let apiReturns = await getEmpleo();
-        let pApiReturns= await getPrivateEmpleo();
         console.log(apiReturns.data);
-        console.log(pApiReturns);
+        let pApiReturns= await getPrivateEmpleo();
+        console.log(pApiReturns.data);
         }
         catch (e) {
 
@@ -41,32 +45,40 @@ export default class extends Component{
                 showHeader = {true}
                 showFooter = {true}    
                 title="FreeLanceHN..."
+                auth = {this.props.auth}
 
     >
                 <h2></h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to mak
-                 a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
-                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <div>
+                <p>FreelanceHn es el lugar indicado para poder conseguir trabajo de forma totalmente remota , nos especializamos en programacion , diseño grafico, edicion de videos,
+                    marketing digital, animacion 3D y muchas más.
                 </p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to mak
-                 a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
-                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                
+                <p>
+                                                             Pasos para utilizar FreelanceHn
                 </p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to mak
-                 a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
-                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <p>
+                     Freelancer 
                 </p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to mak
-                 a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
-                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <p>
+                    1) Crear una cuenta 
                 </p>
+                <p>
+                    2) Iniciar sesión 
+                </p>
+                <p>
+                    3) Buscar un empleo  
+                </p>
+                <p>
+                    3) Ponerse en contacto con el empleador  
+                </p>
+                
 
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to mak
-                 a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
-                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-                <p>click: {this.state.click}</p>
-                 <button onClick = {this.onClickButton} >Sign in</button>
+
+                </div>
+                
+                
+                 <button onClick = {this.onClickButton} >Cerrar sesion</button>
             </Page>
         );
 

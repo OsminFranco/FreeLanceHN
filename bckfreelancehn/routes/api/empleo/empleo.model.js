@@ -17,6 +17,9 @@ module.exports = class {
     }//iniciar
 
 
+    
+
+
     static async getAll(){
       if(empleoColl){
         let registro = await  empleoColl.find();

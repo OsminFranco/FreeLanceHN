@@ -8,8 +8,9 @@ export default ()=>{
     return(
         <Page
             title="Mociones por Votar"
+            showFooter={true}
             showFooter={false}
-            showFooter={false}
+            auth = {this.props.auth}
         >
             <VotingDeck title="Ingreso por medio de RFID"></VotingDeck>
             <VotingDeck title="Modernizacion de parque"></VotingDeck>
